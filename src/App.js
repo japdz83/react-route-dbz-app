@@ -1,15 +1,18 @@
-import React, { useEffect, useReducer } from "react";
-import "./App.css";
-import LoginRouters from "./routes/LoginRouters";
+import { useEffect, useReducer } from "react";
+
+import LoginRouter from "./routes/LoginRouter";
+
 import { AuthContext } from "./context/AuthContext";
-import { AuthReducers } from "./reducers/AuthReducers";
+import { AuthReducer } from "./reducers/AuthReducer";
+
+import "./App.css";
 
 const init = () => {
   return JSON.parse(localStorage.getItem("log")) || { log: false };
 };
 
-function App() {
-  const [log, dispatch] = useReducer(AuthReducers, {}, init);
+const App = () => {
+  const [log, dispatch] = useReducer(AuthReducer, {}, init);
 
   useEffect(() => {
     localStorage.setItem("log", JSON.stringify(log));
@@ -17,9 +20,9 @@ function App() {
 
   return (
     <AuthContext.Provider value={{ log, dispatch }}>
-      <LoginRouters />
+      <LoginRouter />
     </AuthContext.Provider>
   );
-}
+};
 
 export default App;

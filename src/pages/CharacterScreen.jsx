@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import { Characters } from "../models/Characters";
 
 const CharacterScreen = ({ history }) => {
@@ -16,25 +16,25 @@ const CharacterScreen = ({ history }) => {
   };
 
   return (
-    <div className="container mt-5">
-      <div className="row">
-        <div className="col-md-6">
-          <img
-            className="img-thumbnail mt-3"
-            src={path}
-            alt={id}
-            style={{ width: "70%", height: "auto" }}
-          />
-        </div>
-        <div className="col-md-6">
-          <div className="mt-5">
-            <h2>Nombre: {name}</h2>
-            <p>Descripción: {description}</p>
-            <button onClick={handleBack} className="btn btn-outline-primary">
-              Go Back
-            </button>
-          </div>
-        </div>
+    <div className="container row mt-5">
+      <div className="col-8">
+        <img
+          className="img-thumbnail "
+          style={{
+            width: "70%",
+            height: "400px",
+          }}
+          src={path}
+          alt={id}
+        />
+      </div>
+      <div className="col-4">
+        <h2>Nombre: {name}</h2>
+        <p>Desccripción: {description}</p>
+
+        <button onClick={handleBack} className="btn btn-outline-warning">
+          Go Back
+        </button>
       </div>
     </div>
   );

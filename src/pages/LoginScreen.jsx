@@ -4,17 +4,21 @@ import { AuthContext } from "../context/AuthContext";
 import { authTypes } from "../types/authTypes";
 
 const LoginScreen = () => {
-  const history = useHistory();
   const { dispatch } = useContext(AuthContext);
+
+  const history = useHistory();
+
   const handleLogin = () => {
     dispatch({ type: authTypes.login });
-    history.push("/mans");
+
+    history.push("/");
   };
+
   return (
     <div className="container mt-5 text-center">
-      <img src="/assets/animate.gif" alt="Img-SonGoku" />
-      <h1 className="m-3">Login Screen</h1>
-      <button type="button" className="btn btn-primary" onClick={handleLogin}>
+      <img src="/assets/animate.gif" alt="animacion" />
+      <h1 className="my-3">Login Screen</h1>
+      <button onClick={handleLogin} className="btn btn-primary">
         Login
       </button>
     </div>
